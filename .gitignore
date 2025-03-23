@@ -1,0 +1,10 @@
+.idea/
+*.pyc
+.env
+.env.prod
+static/*
+!static/.gitkeep
+logs/apps/client/*
+logs/apps/schedule/*
+!logs/apps/client/.gitkeep
+!logs/apps/schedule/.gitkeep
