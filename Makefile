@@ -32,7 +32,7 @@ app-logs:
 		${LOGS} ${APP_CONTAINER} -f
 
 app-down:
-		${DC} ${ENV} -f ${APP_FILE} -f ${STORAGES_FILE} -f ${MONITORING_FILE} down
+		${DC} ${ENV} -f ${APP_FILE} -f ${STORAGES_FILE} down
 
 storages:
 		${DC} ${ENV} -f ${STORAGES_FILE} up -d
