@@ -21,7 +21,7 @@ MANAGE_PY = python manage.py
 
 .PHONY: all,
 .PHONY: app, app-down, app-logs, # start,end,logs of the main app
-.PHONY: storages, storages-logs, storages-down,  # storages(postgres, pgadmin, redis, redisinsight) commands
+.PHONY: storages, storages-logs, storages-down,  # storages(postgres, pgadmin) commands
 .PHONY: postgres, db-logs, # postgres specific commands
 .PHONY: migrations, migrate, superuser, collectstatic # django manage.py commands
 
@@ -60,3 +60,9 @@ superuser:
 
 collectstatic:
 		${EXEC_IT} ${APP_CONTAINER} ${MANAGE_PY} collectstatic
+
+run-test:
+		${EXEC_IT} ${APP_CONTAINER} pytest -v
+
+test-run-test:
+	${EXEC} ${APP_CONTAINER} pytest -v

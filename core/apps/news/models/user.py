@@ -23,8 +23,11 @@ class User(TimedBaseModel):
         choices=UserRole,
         verbose_name="User's Roles",
     )
-    score = models.FloatField(
+    score = models.DecimalField(
         verbose_name="User's Score",
+        default=0.0,
+        decimal_places=2,
+        max_digits=5,
     )
     email = models.EmailField(
         verbose_name="User's email for auth",
@@ -43,6 +46,7 @@ class User(TimedBaseModel):
             id=self.id,
             first_name=self.first_name,
             last_name=self.last_name,
+            middle_name=self.middle_name,
             role=UserRole(self.role),
             email=self.email,
             score=self.score,
